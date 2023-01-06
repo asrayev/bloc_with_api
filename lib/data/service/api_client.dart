@@ -1,7 +1,6 @@
-import 'package:bloc_with_api/data/service/custom_exeption.dart';
+import 'package:bloc_with_api/data/service/custom_exception.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-
 const String baseUrl= "https://easyenglishuzb.free.mockoapp.net";
 class ApiClient{
 
@@ -22,7 +21,7 @@ class ApiClient{
 
     dio.interceptors.add(InterceptorsWrapper(
         onError: (DioError error, ErrorInterceptorHandler handler){
-          print("ON ERRORGA KIRDI:${error.toString()}");
+          // print("has error:${error.toString()}");
           switch (error.type) {
             case DioErrorType.connectTimeout:
             case DioErrorType.sendTimeout:
@@ -54,7 +53,7 @@ class ApiClient{
           return handler.next(error);
         },
         onRequest: (RequestOptions requestOptions,RequestInterceptorHandler handler){
-          print("SO'ROV YUBORILDI");
+          // print("request sent");
           String currentLocale = "uz";
           requestOptions.headers["Accept"] = "application/json";
           requestOptions.headers["Accept-Language"] =
@@ -62,7 +61,7 @@ class ApiClient{
           return  handler.next(requestOptions);
         },
         onResponse: (Response response,ResponseInterceptorHandler handler ){
-          print("URAAA RESPONSE KELDI");
+          // print("yes data");
           return handler.next(response);
         }
     ));

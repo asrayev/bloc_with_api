@@ -45,6 +45,7 @@ class WidgetListView extends StatelessWidget {
               ),
             ),
           );
-        });
+        }
+        );
   }
 }
