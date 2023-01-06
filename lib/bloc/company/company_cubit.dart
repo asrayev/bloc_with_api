@@ -10,7 +10,7 @@ class CompanyCubit extends Cubit<CompanyState> {
 
   final CompanyRepository companyRepository;
 
-  fetchAllAlbums() async {
+  fetchAllCategories() async {
     //loading
     emit(LoadCompanyInProgress());
     MyResponse myResponse = await companyRepository.getAllCompanies();

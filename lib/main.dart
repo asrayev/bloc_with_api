@@ -10,7 +10,7 @@ void main() {
   runApp(MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CompanyCubit(CompanyRepository(apiService: ApiService()))..fetchAllAlbums(),
+          create: (context) => CompanyCubit(CompanyRepository(apiService: ApiService()))..fetchAllCategories(),
         ),
       ],
 
@@ -19,7 +19,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
